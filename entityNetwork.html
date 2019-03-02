@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+
+  <script type="text/javascript" src="vis.js"></script>
+  <link href="vis.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    #mynetwork {
+      width: 700px;
+      height: 500px;
+      border: 1px solid lightgray;
+    }
+  </style>
+</head>
+<body>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet(
+
+[
+    {
+        "id": 17940,
+        "label": "blue.company",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 17960,
+        "label": "blue.companymap",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 17951,
+        "label": "blue.companyinstance",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 17975,
+        "label": "master.property",
+        "shape": "box",
+        "color": "grey"
+    },
+    {
+        "id": 18026,
+        "label": "master.propertycompany",
+        "shape": "box",
+        "color": "grey"
+    },
+    {
+        "id": 18030,
+        "label": "blue.companything",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 18034,
+        "label": "blue.combi1",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 17995,
+        "label": "master.propertymap",
+        "shape": "box",
+        "color": "grey"
+    },
+    {
+        "id": 17986,
+        "label": "master.propertyinstance",
+        "shape": "box",
+        "color": "grey"
+    },
+    {
+        "id": 18038,
+        "label": "blue.combi2",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 18008,
+        "label": "blue.companypropertyinstancemap",
+        "shape": "box",
+        "color": "blue"
+    },
+    {
+        "id": 18021,
+        "label": "master.allofit",
+        "shape": "box",
+        "color": "grey"
+    }
+]);
+
+  // create an array with edges
+  var edges = new vis.DataSet(
+[
+    {
+        "from": 18021,
+        "to": 17940,
+        "arrows": "to"
+    },
+    {
+        "from": 18021,
+        "to": 17951,
+        "arrows": "to"
+    },
+    {
+        "from": 18021,
+        "to": 17960,
+        "arrows": "to"
+    },
+    {
+        "from": 18021,
+        "to": 17975,
+        "arrows": "to"
+    },
+    {
+        "from": 18021,
+        "to": 17986,
+        "arrows": "to"
+    },
+    {
+        "from": 18021,
+        "to": 17995,
+        "arrows": "to"
+    },
+    {
+        "from": 18021,
+        "to": 18008,
+        "arrows": "to"
+    },
+    {
+        "from": 18026,
+        "to": 17960,
+        "arrows": "to"
+    },
+    {
+        "from": 18026,
+        "to": 17995,
+        "arrows": "to"
+    },
+    {
+        "from": 18026,
+        "to": 18008,
+        "arrows": "to"
+    },
+    {
+        "from": 18030,
+        "to": 17940,
+        "arrows": "to"
+    },
+    {
+        "from": 18034,
+        "to": 18021,
+        "arrows": "to"
+    },
+    {
+        "from": 18034,
+        "to": 18026,
+        "arrows": "to"
+    },
+    {
+        "from": 18038,
+        "to": 18026,
+        "arrows": "to"
+    },
+    {
+        "from": 18038,
+        "to": 18034,
+        "arrows": "to"
+    }
+]  	);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+	var options = {
+	  height: '90%',
+	  layout: {
+	    hierarchical: {
+	      enabled: true,
+	      levelSeparation: 100
+	    }
+	  },
+	  physics: {
+	    hierarchicalRepulsion: {
+	      nodeDistance: 150
+	    }
+	  }
+	};
+  var network = new vis.Network(container, data, options);
+</script>
+
+
+</body>
+</html>
